@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bmsHTML5</title>
+
+	<!-- 외부 js 파일 로드하기 -->
+	<script src="bmsJS.js"></script>
+
+	<!-- 한줄 주석 -->
+	<!-- 여러줄 주석은
+		 이렇게 -->
+
+	<!-- html 파일에 자바스크립트 작성시 <script> 태그를 사용하면 되는데 script 파일은 <head>에 작성해도 되지만 페이지의 하단(예: <body> 등)에 위치시키는 것이 더 좋은 방법이다.  -->
+	<script>
+		// 스크립트에서 한줄 주석
+		/*
+		여러줄 주석은
+		이렇게
+		*/
+
+		var age = 30;	// 자바스크립트(javascript) 변수 선언
+		var name = "ddandongne";
+		var name1 = "wow", age1 = 40;
+
+		// 아래 출력문 결과는 차이가 없네?
+		document.write("변수" + age + "출력 테스트1<br>");
+		document.write("변수", age, "출력 테스트2<br>");
+
+		// 자바스크립트(javascript) 사용자 함수 정의
+		function print99DAN(dan) {
+            document.write(dan + " * 2 = " + (dan * 2), "<br>");
+            document.write(dan + " * 3 = " + (dan * 3), "<br>");
+            
+            for(i=0;i<10;i++)	// 자바스크립트 for 반복문 사용
+            {
+              document.write(i+" ")
+            }
+            document.write("<br>")
+        }
+
+        print99DAN(3);	// 자바스크립트 함수 호출
+        
+
+	</script>
+
+
+</head>
+<body>
+
+	<script>
+		print99DAN(9);	// 자바스크립트를 <body> 안에서 함수 호출하기
+        test();	// 함수 정의가 나중에와도 호출하는데 문제는 없다
+
+		function test() {
+            document.write("test() 함수 테스트<br>");
+        }
+
+        test_1();	// 외부 함수 호출
+        variable_1();
+        array_1();
+
+
+	</script>
+
+</body>
+</html>
