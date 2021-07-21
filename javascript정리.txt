@@ -1,0 +1,46 @@
+
+document.write()
+alert()
+console.log()
+
+
+replace()			문자열 교체
+
+toLocaleString()	1000단위 콤마(,) 찍어주기
+
+
+
+
+=========================================================
+형변환
+=========================================================
+parseInt()			정수 형변환(문자->정수)
+Number()			정수 형변환(문자->정수)
+parseFloat()		실수 형변환
+String()			문자열 형변환(숫자->문자)
+숫자.toString()		문자열 형변환(숫자->문자)
+숫자.toString(16)	문자열 형변환(결과를 16진수 문자로 보여줌 10=a, 11=b ...)
+
+
+
+=========================================================
+셀렉터
+=========================================================
+querySelector()
+getElementById()
+getElementsByClassName()
+
+
+
+
+
+
+https://curryyou.tistory.com/334
+캔버스 안에서 마우스 위치 구하기 
+	const x = event.clientX - ctx.canvas.offsetLeft; 
+	const y = event.clientY - ctx.canvas.offsetTop;
+
+
+
+
+	
