@@ -3,10 +3,19 @@
 
 
 https://hashcode.co.kr/questions/296/자바에서-getpath-getabsolutepath-getcanonicalpath의-차이점이-뭔가요
-getPath()
-getAbsolutePath()
-getCanonicalPath()
+https://codechacha.com/ko/java-getpath-getabsolutepath-getcanonicalpath/
+https://blog.naver.com/crehacktive3/221333859356
+	파일경로 구하기
+	파일다운로드 취약점 조치
+		getPath()
+		getAbsolutePath()
+		getCanonicalPath()
 
 
-
+https://lnsideout.tistory.com/entry/JAVA-etoString-egetMessage-eprintStackTrace-예외처리
+https://wwhite103.tistory.com/39
+	Exception 에러 출력
+		e.getMessage()
+		e.toString()
+		e.printStackTrace()
 
