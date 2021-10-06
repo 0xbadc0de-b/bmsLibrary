@@ -7,7 +7,7 @@ Oracle Dual 테이블이란?
 -- 온라인 오라클 테스트 사이트
 -- https://sqltest.net/
 
-과연???
+과연??? 왜 안되지??
 
 -- 임의의 칼럼 만들기, 결과에 '직업코드: 1' 내용이 자동 채워져서 보여짐
 select '직업코드: ', 1, job_id, job_title, min_salary from jobs;
