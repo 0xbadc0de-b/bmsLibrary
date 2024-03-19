@@ -1,69 +1,77 @@
 /*
-Oracle Dual í…Œì´ë¸”ì´ëž€?
- - ì˜¤ë¼í´ ìžì²´ì—ì„œ ì œê³µë˜ëŠ” í…Œì´ë¸”
- - ê°„ë‹¨í•˜ê²Œ í•¨ìˆ˜ë¥¼ ì´ìš©í•´ì„œ ê³„ì‚° ê²°ê³¼ê°’ì„ í™•ì¸ í•  ë•Œ ì‚¬ìš©í•˜ëŠ” í…Œì´ë¸”
+Oracle Dual Å×ÀÌºíÀÌ¶õ?
+ - ¿À¶óÅ¬ ÀÚÃ¼¿¡¼­ Á¦°øµÇ´Â Å×ÀÌºí
+ - °£´ÜÇÏ°Ô ÇÔ¼ö¸¦ ÀÌ¿ëÇØ¼­ °è»ê °á°ú°ªÀ» È®ÀÎ ÇÒ ¶§ »ç¿ëÇÏ´Â Å×ÀÌºí
 */
 
--- ì˜¨ë¼ì¸ ì˜¤ë¼í´ í…ŒìŠ¤íŠ¸ ì‚¬ì´íŠ¸
+
+·ÎÄÃPC ¿À¶óÅ¬ Oracle Database 11g Express Edition¿¡ 
+Oracle SQL Developer·Î localhost Á¢¼Ó°èÁ¤ => sys / root
+;
+
+
+
+-- ¿Â¶óÀÎ ¿À¶óÅ¬ Å×½ºÆ® »çÀÌÆ®
 -- https://sqltest.net/
 
-ê³¼ì—°??? ì™œ ì•ˆë˜ì§€?? ë­˜ê¹Œ? AAAA
+°ú¿¬??? ¿Ö ¾ÈµÇÁö?? ¹»±î? AAAA
 
--- ìž„ì˜ì˜ ì¹¼ëŸ¼ ë§Œë“¤ê¸°, ê²°ê³¼ì— 'ì§ì—…ì½”ë“œ: 1' ë‚´ìš©ì´ ìžë™ ì±„ì›Œì ¸ì„œ ë³´ì—¬ì§
-select 'ì§ì—…ì½”ë“œ: ', 1, job_id, job_title, min_salary from jobs;
+-- ÀÓÀÇÀÇ Ä®·³ ¸¸µé±â, °á°ú¿¡ 'Á÷¾÷ÄÚµå: 1' ³»¿ëÀÌ ÀÚµ¿ Ã¤¿öÁ®¼­ º¸¿©Áü
+select 'Á÷¾÷ÄÚµå: ', 1, job_id, job_title, min_salary from jobs;
 
--- ì¹¼ëŸ¼ ì´ë¦„ë°”ê¾¸ê¸°(alias), ë³„ëª… ì‚¬ìš©
-select job_id as ì§ì—…ID, job_title as ì§ì—…ëª…, min_salary as ìµœì†Œìž„ê¸ˆ from jobs;
-select job_id as "ì§ì—… ID", job_title as "ì§ì—… ëª…", min_salary as "ìµœì†Œ ìž„ê¸ˆ" from jobs;
+-- Ä®·³ ÀÌ¸§¹Ù²Ù±â(alias), º°¸í »ç¿ë
+select job_id as Á÷¾÷ID, job_title as Á÷¾÷¸í, min_salary as ÃÖ¼ÒÀÓ±Ý from jobs;
+select job_id as "Á÷¾÷ ID", job_title as "Á÷¾÷ ¸í", min_salary as "ÃÖ¼Ò ÀÓ±Ý" from jobs;
 
--- ì‚°ìˆ ì—°ì‚°ìž ì‚¬ìš© ê°€ëŠ¥
-select job_id, job_title, min_salary * 12 as ìµœì†Œì—°ë´‰ from jobs;
+-- »ê¼ú¿¬»êÀÚ »ç¿ë °¡´É
+select job_id, job_title, min_salary * 12 as ÃÖ¼Ò¿¬ºÀ from jobs;
 
-select 'ì§ì—…ì½”ë“œ: ' || job_id, job_title, min_salary from jobs;
--- ì•„ëž˜ ê²°ê³¼ì²˜ëŸ¼ ë¬¸ìžë¥¼ ì—°ê²°í•¨
--- ì§ì—…ì½”ë“œ: job-id1, job_title1, min_salary2
--- ì§ì—…ì½”ë“œ: job-id2, job_title2, min_salary2
--- ...(ê³„ì†)
+select 'Á÷¾÷ÄÚµå: ' || job_id, job_title, min_salary from jobs;
+-- ¾Æ·¡ °á°úÃ³·³ ¹®ÀÚ¸¦ ¿¬°áÇÔ
+-- Á÷¾÷ÄÚµå: job-id1, job_title1, min_salary2
+-- Á÷¾÷ÄÚµå: job-id2, job_title2, min_salary2
+-- ...(°è¼Ó)
 
 
 select employee_id, salary, manager_id from employees 
-where manager_id is null;     -- ë©”ë‹ˆì €IDê°€ ì—†ëŠ”(NULL) ë ˆì½”ë“œë§Œ ì¶”ì¶œ
+where manager_id is null;     -- ¸Þ´ÏÀúID°¡ ¾ø´Â(NULL) ·¹ÄÚµå¸¸ ÃßÃâ
 
 
--- ì›¹ ì‘ìš©í”„ë¡œê·¸ëž¨ê³¼ í¬íŠ¸ ë²ˆí˜¸ê°€ ê³ì¹˜ì§€ ì•Šê¸° ìœ„í•´ 
--- ì˜¤ë¼í´ ì›¹ì ‘ì† 8080 í¬íŠ¸ ë³€ê²½ì„ ìœ„í•´ SYS ê³„ì •ì— SYSBDA ê¶Œí•œìœ¼ë¡œ ì ‘ì†í›„
+-- À¥ ÀÀ¿ëÇÁ·Î±×·¥°ú Æ÷Æ® ¹øÈ£°¡ °çÄ¡Áö ¾Ê±â À§ÇØ 
+-- ¿À¶óÅ¬ À¥Á¢¼Ó 8080 Æ÷Æ® º¯°æÀ» À§ÇØ SYS °èÁ¤¿¡ SYSBDA ±ÇÇÑÀ¸·Î Á¢¼ÓÈÄ
 select dbms_xdb.gethttpport() from dual;
--- ìœ„ ì¿¼ë¦¬ ì‹¤í–‰ì‹œ ê²°ê³¼ê°€ 8080 í¬íŠ¸ì´ë©´ ì•„ëž˜ ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•˜ì—¬ 9090 í¬íŠ¸ë¡œ ë³€ê²½
+-- À§ Äõ¸® ½ÇÇà½Ã °á°ú°¡ 8080 Æ÷Æ®ÀÌ¸é ¾Æ·¡ Äõ¸®¸¦ ½ÇÇàÇÏ¿© 9090 Æ÷Æ®·Î º¯°æ
 exec dbms_xdb.sethttpport(9090);
 
 
--- BETWEENì€ ë‚ ì§œ, ìˆ«ìžì˜ ë²”ìœ„ ê²€ìƒ‰ì— ì•„ì£¼ ìœ ìš©í•˜ë©°, ë¬¸ìžì˜ ë²”ìœ„ ê²€ìƒ‰ë„ ê°€ëŠ¥
--- BETWEET ì—°ì‚°ìžì™€ ë¹„êµ ì—°ì‚°ìž(>=, <=)ëŠ” ë™ì¼í•œ ê²°ê³¼ê°€ ê²€ìƒ‰ë˜ì§€ë§Œ, íŠ¹ìˆ˜í•œ ê²½ìš°ê°€ ì•„ë‹ˆë©´ BETWEEN ì—°ì‚°ìžë¥¼ ì‚¬ìš©í•  ê²ƒì„ ê¶Œìž¥
--- â‘  ì»¬ëŸ¼ëª… BETWEEN ì‹œìž‘ì¼ìž AND ì¢…ë£Œì¼ìž 
--- â‘¡ ì»¬ëŸ¼ëª… >= ì‹œìž‘ì¼ìž AND ì»¬ëŸ¼ëª… <= ì¢…ë£Œì¼ìž
--- [ ë‚ ì§œ ë²”ìœ„ ê²€ìƒ‰ ]
+-- BETWEENÀº ³¯Â¥, ¼ýÀÚÀÇ ¹üÀ§ °Ë»ö¿¡ ¾ÆÁÖ À¯¿ëÇÏ¸ç, ¹®ÀÚÀÇ ¹üÀ§ °Ë»öµµ °¡´É
+-- BETWEET ¿¬»êÀÚ¿Í ºñ±³ ¿¬»êÀÚ(>=, <=)´Â µ¿ÀÏÇÑ °á°ú°¡ °Ë»öµÇÁö¸¸, Æ¯¼öÇÑ °æ¿ì°¡ ¾Æ´Ï¸é BETWEEN ¿¬»êÀÚ¸¦ »ç¿ëÇÒ °ÍÀ» ±ÇÀå
+-- ¨ç ÄÃ·³¸í BETWEEN ½ÃÀÛÀÏÀÚ AND Á¾·áÀÏÀÚ 
+-- ¨è ÄÃ·³¸í >= ½ÃÀÛÀÏÀÚ AND ÄÃ·³¸í <= Á¾·áÀÏÀÚ
+-- [ ³¯Â¥ ¹üÀ§ °Ë»ö ]
 SELECT * FROM emp 
 WHERE 1=1 
 AND hiredate BETWEEN TO_DATE('1981-01-01', 'YYYY-MM-DD') AND TO_DATE('1981-12-31', 'YYYY-MM-DD')
--- [ ìˆ«ìž ë²”ìœ„ ê²€ìƒ‰ ]
+-- [ ¼ýÀÚ ¹üÀ§ °Ë»ö ]
 SELECT * FROM emp 
 WHERE empno BETWEEN 7000 AND 7600                   
 
 
-
--- LIKE ì¡°ê±´ì‹ì€ ë¬¸ìžì—´ì˜ íŒ¨í„´ì„ ê²€ìƒ‰í•  ë•Œ ì‚¬ìš©í•˜ëŠ” ì¡°ê±´ì‹ì´ë‹¤. 
+;
+-- LIKE Á¶°Ç½ÄÀº ¹®ÀÚ¿­ÀÇ ÆÐÅÏÀ» °Ë»öÇÒ ¶§ »ç¿ëÇÏ´Â Á¶°Ç½ÄÀÌ´Ù. 
 SELECT emp_name FROM employees
 WHERE 1=1
-AND emp_name LIKE 'A%'   -- Aë¡œ ì‹œìž‘í•˜ëŠ” ë¬¸ìžì—´
-AND emp_name LIKE '%A'   -- Aë¡œ ëë‚˜ëŠ” ë¬¸ìžì—´
-AND emp_name LIKE '%A_'  -- ìž„ì˜ ë¬¸ìžì—´í›„ Aë’¤ì— í•œê¸€ìž ë”ì˜¤ê³  ëë‚˜ ë¬¸ìžì—´
-ORDER BY emp_name;
+AND emp_name LIKE 'A%'   -- A·Î ½ÃÀÛÇÏ´Â ¹®ÀÚ¿­
+AND emp_name LIKE '%A'   -- A·Î ³¡³ª´Â ¹®ÀÚ¿­
+AND emp_name LIKE '%A_'  -- ÀÓÀÇ ¹®ÀÚ¿­ÈÄ AµÚ¿¡ ÇÑ±ÛÀÚ ´õ¿À°í ³¡³ª ¹®ÀÚ¿­
+ORDER BY emp_name
+;
 
 
--- ë‘ í…Œì´ë¸”ì˜ ì¿¼ë¦¬ ê²°ê³¼ë¥¼ ì„¸ë¡œë¡œ ë¶™ì—¬ì„œ ë³´ì—¬ì£¼ê¸°
--- union allì€ ë‹¤ìˆ˜ì˜ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì„ í•œë²ˆì— ì¶œë ¥í•˜ê¸° ìœ„í•©ë‹ˆë‹¤.(ì¿¼ë¦¬ì˜ ê²°í•©)
--- UNION       : ë‘ í…Œì´ë¸”ì˜ ê²°ê³¼ë¥¼ ì¤‘ë³µì œê±°í•˜ì—¬ ì¶œë ¥í•©ë‹ˆë‹¤.
--- UNION ALL   : ë‘ í…Œì´ë¸”ì˜ ê²°ê³¼ë¥¼ ì¤‘ë³µí—ˆìš©í•˜ì—¬ ì¶œë ¥í•©ë‹ˆë‹¤.
+-- µÎ Å×ÀÌºíÀÇ Äõ¸® °á°ú¸¦ ¼¼·Î·Î ºÙ¿©¼­ º¸¿©ÁÖ±â
+-- union allÀº ´Ù¼öÀÇ Å×ÀÌºíÀÇ ÄÃ·³À» ÇÑ¹ø¿¡ Ãâ·ÂÇÏ±â À§ÇÕ´Ï´Ù.(Äõ¸®ÀÇ °áÇÕ)
+-- UNION       : µÎ Å×ÀÌºíÀÇ °á°ú¸¦ Áßº¹Á¦°ÅÇÏ¿© Ãâ·ÂÇÕ´Ï´Ù.
+-- UNION ALL   : µÎ Å×ÀÌºíÀÇ °á°ú¸¦ Áßº¹Çã¿ëÇÏ¿© Ãâ·ÂÇÕ´Ï´Ù.
 select * from ATable
 union all
 select * from BTable
@@ -77,20 +85,22 @@ from(
 	)
 ;
 
--- ì¡°ì¸ (JOIN), ì•„ìš°í„° ì¡°ì¸(Outer Join)
--- https://goddaehee.tistory.com/62 <---- ì—¬ê¸° ì„¤ëª…ë¨¼ì € ë³´ìž!!!!!
--- ë‘ í…Œì´ë¸”ì˜ ì¿¼ë¦¬ ê²°ê³¼ë¥¼ ê°€ë¡œë¡œ ë¶™ì—¬ì„œ ë³´ì—¬ì£¼ê¸°
--- where ì¡°ê±´ì ˆì— ë‘ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì¤‘ ì¼ì¹˜í•˜ëŠ” ì •ë³´ë¥¼ ê¸°ìž…í•´ì¤˜ì•¼í•¨
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Á¶ÀÎ (JOIN), ¾Æ¿ìÅÍ Á¶ÀÎ(Outer Join)
+-- https://goddaehee.tistory.com/62 <---- ¿©±â ¼³¸í¸ÕÀú º¸ÀÚ!!!!!
+-- µÎ Å×ÀÌºíÀÇ Äõ¸® °á°ú¸¦ °¡·Î·Î ºÙ¿©¼­ º¸¿©ÁÖ±â
+-- where Á¶°ÇÀý¿¡ µÎ Å×ÀÌºíÀÇ ÄÃ·³Áß ÀÏÄ¡ÇÏ´Â Á¤º¸¸¦ ±âÀÔÇØÁà¾ßÇÔ
 SELECT table.column, table.column
 FROM table1, table2
-WHERE table1.column1 = table2.column2;
+WHERE table1.column1 = table2.column2
+;
 
 
 
--- GROUPëŠ” íŠ¹ì • ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ì§‘ê³„ë¥¼ ë‚´ëŠ”ë° ì‚¬ìš©ëœë‹¤.
--- SELECT [GROUP BY ì ˆì— ì§€ì •ëœ ì»¬ëŸ¼1] [GROUP BYë³„ë¡œ ì§‘ê³„í•  ê°’] 
--- FROM [í…Œì´ë¸” ëª…] 
--- GROUP BY [ ê·¸ë£¹ìœ¼ë¡œ ë¬¶ì„ ì»¬ëŸ¼ ê°’ ]
+-- GROUP´Â Æ¯Á¤ ÄÃ·³À» ±âÁØÀ¸·Î Áý°è¸¦ ³»´Âµ¥ »ç¿ëµÈ´Ù.
+-- SELECT [GROUP BY Àý¿¡ ÁöÁ¤µÈ ÄÃ·³1] [GROUP BYº°·Î Áý°èÇÒ °ª] 
+-- FROM [Å×ÀÌºí ¸í] 
+-- GROUP BY [ ±×·ìÀ¸·Î ¹­À» ÄÃ·³ °ª ]
 SELECT CLASS, SUM(SCORE) 
 FROM TBL_REPORT_CARD 
 GROUP BY CLASS
@@ -98,14 +108,14 @@ GROUP BY CLASS
 
 /*
 GROUP BY
- - ë°ì´í„°ë“¤ì„ ì›í•˜ëŠ” ê·¸ë£¹ìœ¼ë¡œ ë‚˜ëˆ„ëŠ” ì—­í• ì„ í•©ë‹ˆë‹¤.
- - GROUP BY ì ˆì˜ ìœ„ì¹˜ëŠ” WHERE ì™€ ORDER BYì ˆ ì‚¬ì´ì— ìœ„ì¹˜í•œë‹¤.
+ - µ¥ÀÌÅÍµéÀ» ¿øÇÏ´Â ±×·ìÀ¸·Î ³ª´©´Â ¿ªÇÒÀ» ÇÕ´Ï´Ù.
+ - GROUP BY ÀýÀÇ À§Ä¡´Â WHERE ¿Í ORDER BYÀý »çÀÌ¿¡ À§Ä¡ÇÑ´Ù.
 
 HAVING
- - GROUP BY ì‚¬ìš©ì‹œ ì¡°ê±´ ê°’
- - WHERE ì ˆì—ì„œëŠ” ì§‘ê³„í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤.
- - HAVING ì ˆì€ ì§‘ê³„í•¨ìˆ˜ë¥¼ ê°€ì§€ê³  ì¡°ê±´ë¹„êµë¥¼ í•  ë•Œ ì‚¬ìš©í•œë‹¤.
- - GROUP BY [ê·¸ë£¹í•‘í•  ì»¬ëŸ¼] HAVING [ì¡°ê±´]
+ - GROUP BY »ç¿ë½Ã Á¶°Ç °ª
+ - WHERE Àý¿¡¼­´Â Áý°èÇÔ¼ö¸¦ »ç¿ëÇÒ ¼ö ¾ø´Ù.
+ - HAVING ÀýÀº Áý°èÇÔ¼ö¸¦ °¡Áö°í Á¶°Çºñ±³¸¦ ÇÒ ¶§ »ç¿ëÇÑ´Ù.
+ - GROUP BY [±×·ìÇÎÇÒ ÄÃ·³] HAVING [Á¶°Ç]
 */
 SELECT depart_no, SUM(salary), SUM(commission)
 FROM emp 
@@ -118,81 +128,111 @@ ORDER BY SUM(commission)
 
 
 
-desc jobs;		-- jobs í…Œì´ë¸”ì˜ ì¹¼ëŸ¼ ì´ë¦„ë§Œ ë‚˜ì—´
+desc jobs;		-- jobs Å×ÀÌºíÀÇ Ä®·³ ÀÌ¸§¸¸ ³ª¿­
 describe jobs;
 
 
 
--- ì‚¬ìš©ìž ê³„ì •(book_ex) ìƒì„±, identified by ë’¤ì—ê°€ íŒ¨ìŠ¤ì›Œë“œ(book_ex)
--- ê¸°ë³¸í…Œì´ë¸” ìŠ¤íŽ˜ì´ìŠ¤ USERS, ìž„ì‹œí…Œì´ë¸” ìŠ¤íŽ˜ì´ì¦ˆ TEMP
+-- »ç¿ëÀÚ °èÁ¤(book_ex) »ý¼º, identified by µÚ¿¡°¡ ÆÐ½º¿öµå(book_ex)
+-- ±âº»Å×ÀÌºí ½ºÆäÀÌ½º USERS, ÀÓ½ÃÅ×ÀÌºí ½ºÆäÀÌÁî TEMP
 create user book_ex identified by book_ex
 default tablespace USERS
 temporary tablespace TEMP;
 
 
--- ì ‘ì†ê¶Œí•œ ë° DBA ê¶Œí•œ ë¶€ì—¬
+-- Á¢¼Ó±ÇÇÑ ¹× DBA ±ÇÇÑ ºÎ¿©
 grant connect, dba to book_ex;
 
 
 
 
 
--- row ì‚­ì œ
-DELETE FROM í…Œì´ë¸”ëª… -- í…Œì´ë¸”ì „ì²´
-DELETE FROM í…Œì´ë¸”ëª… where ì»¬ëŸ¼ëª… = [ì¡°ê±´] -- ì¡°ê±´ì— ë§žëŠ” row ì‚­ì œ
+-- row »èÁ¦
+DELETE FROM Å×ÀÌºí¸í -- Å×ÀÌºíÀüÃ¼
+DELETE FROM Å×ÀÌºí¸í where ÄÃ·³¸í = [Á¶°Ç] -- Á¶°Ç¿¡ ¸Â´Â row »èÁ¦
 
 
 
---UPDATEë¬¸
--- UPDATE í…Œì´ë¸”ëª…
+--UPDATE¹®
+-- UPDATE Å×ÀÌºí¸í
 -- SET 
--- ì»¬ëŸ¼1 = ë³€ê²½í•  ê°’,
--- ì»¬ëŸ¼2 = ë³€ê²½í•  ê°’
+-- ÄÃ·³1 = º¯°æÇÒ °ª,
+-- ÄÃ·³2 = º¯°æÇÒ °ª
 -- .....
 -- WHERE
--- ì¡°ê±´;
+-- Á¶°Ç;
+
+
+----------------------------------------------------------------------------------------------------
+-- select °á°ú·Î update
+----------------------------------------------------------------------------------------------------
+update test
+set (pk, id, name) = (select pk, id, name from test1 where pk = 1) -- ¸¸¾à ÇØ´ç ¼­ºêÄõ¸®ÀÇ Á¶È¸°á°ú °¹¼ö°¡ 2°³ ÀÌ»óÀÏ ½Ã ¿¡·¯
+;
+
+update test
+    set count = test.count + a.count
+    from (select * from test1) as a
+    where test.pk = a.pk 
+-- testÅ×ÀÌºí ³» pk¿Í test1 Å×ÀÌºí ³» pk °¡ °°Àº µ¥ÀÌÅÍ¿¡¸¸ count¸¦ Ãß°¡ÇØÁÜ
+-- Á¶ÀÎµµ °¡´É
+;
 
 
 
--- ì„œë¸Œì¿¼ë¦¬ë¬¸ ëŒ€ì‹  ìž„ì‹œí…Œì´ë¸” ë§Œë“¤ê¸°
--- ì˜¤ë¼í´ WITHì ˆ ì‚¬ìš©ë²• & ì˜ˆì œ (ìž„ì‹œ í…Œì´ë¸” ë§Œë“¤ê¸°)
+;
+-- ¼­ºêÄõ¸®¹® ´ë½Å ÀÓ½ÃÅ×ÀÌºí ¸¸µé±â
+-- ¿À¶óÅ¬ WITHÀý »ç¿ë¹ý & ¿¹Á¦ (ÀÓ½Ã Å×ÀÌºí ¸¸µé±â)
 -- https://coding-factory.tistory.com/445
 -- https://superkong1.tistory.com/35
--- WITHì ˆì— ì •ì˜ëœ ì¿¼ë¦¬ëŠ” ì—¬ëŸ¬ë²ˆ ì‚¬ìš©í• ìˆ˜ë¡ íš¨ìœ¨ì´ ì¦ê°€í•©ë‹ˆë‹¤.
--- WITHì ˆì— ì •ì˜ëœ ë‚´ìš©ì„ í•œë²ˆë§Œ ì‚¬ìš©í•œë‹¤ë©´ ì„œë¸Œì¿¼ë¦¬ë¥¼ ì‚¬ìš©í•˜ëŠ”ê²ƒê³¼ í¬ê²Œ ì„±ëŠ¥ì°¨ì´ê°€ ë‚˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+-- WITHÀý¿¡ Á¤ÀÇµÈ Äõ¸®´Â ¿©·¯¹ø »ç¿ëÇÒ¼ö·Ï È¿À²ÀÌ Áõ°¡ÇÕ´Ï´Ù.
+-- WITHÀý¿¡ Á¤ÀÇµÈ ³»¿ëÀ» ÇÑ¹ø¸¸ »ç¿ëÇÑ´Ù¸é ¼­ºêÄõ¸®¸¦ »ç¿ëÇÏ´Â°Í°ú Å©°Ô ¼º´ÉÂ÷ÀÌ°¡ ³ªÁö ¾Ê½À´Ï´Ù.
 --
--- 1) withì ˆ ì‚¬ìš©ë²•
+-- 1) withÀý »ç¿ë¹ý
 WITH 
 EXAMPLE AS(
-      SELECT 'WITHì ˆ' AS STR1 FROM DUAL
+      SELECT 'WITHÀý' AS STR1 FROM DUAL
 )
 SELECT * FROM EXAMPLE
+;
 --
--- 2) ë‹¤ì¤‘ withì ˆ ì‚¬ìš©ë²•
+-- 2) ´ÙÁß withÀý »ç¿ë¹ý
 WITH 
-EXAMPLE1 AS ( --ì²«ë²ˆì§¸ WITHë¬¸
+EXAMPLE1 AS ( --Ã¹¹øÂ° WITH¹®
       SELECT 'EX1' A FROM DUAL 
       UNION ALL
       SELECT 'EX2' FROM DUAL
 ), 
-EXAMPLE2 AS ( --ë‘ë²ˆì§¸ WITHë¬¸
+EXAMPLE2 AS ( --µÎ¹øÂ° WITH¹®
       SELECT 'EX3' A FROM DUAL 
       UNION ALL
-      SELECT A FROM EXAMPLE1 --ì²«ë²ˆì§¸ WITHë¬¸ ì°¸ì¡°
+      SELECT A FROM EXAMPLE1 --Ã¹¹øÂ° WITH¹® ÂüÁ¶
 ) 
 SELECT * FROM EXAMPLE2
-
+;
 
 
 
 https://offbyone.tistory.com/253
-ì˜¤ë¼í´ MERGE INTO ë¬¸ìœ¼ë¡œ ìžˆìœ¼ë©´ UPDATE ì—†ìœ¼ë©´ INSERT í•œë²ˆì— ìˆ˜í–‰í•˜ê¸°
+¿À¶óÅ¬ MERGE INTO ¹®À¸·Î ÀÖÀ¸¸é UPDATE ¾øÀ¸¸é INSERT ÇÑ¹ø¿¡ ¼öÇàÇÏ±â
 
 
 
 
 ----------------------------------------------------------------
-create sequence seq_board;    -- ì‹œí€€ìŠ¤ ìƒì„±
+-- Sequence Á¶È¸/»ý¼º
+-- https://ditus.tistory.com/entry/Oracle-Sequence-Á¶È¸»ý¼º
+CREATE SEQUENCE idx;    -- ½ÃÄö½º »ý¼º
+DROP SEQUENCE idx;		-- ½ÃÄö½º »èÁ¦
+
+Á¤ÀÇµÈ ½ÃÄö½º Á¶È¸
+select * from user_sequences
+
+ÇöÀç ½ÃÄö½º Á¶È¸
+select ½ÃÄö½º³×ÀÓ.currval from dual
+
+´ÙÀ½ ½ÃÄö½º Á¶È¸
+select ½ÃÄö½º³×ÀÓ.nextval from dual
 
 create table tbl_board (
   bno number(10,0),
@@ -203,13 +243,21 @@ create table tbl_board (
   updatedate date default sysdate
 );
 
-alter table tbl_board add constraint pk_board  -- Primary Key(PK) ì§€ì •
-primary key (bno);
+-- https://luji.tistory.com/71
+-- ¿À¶óÅ¬ auto_increment (½ÃÄö½º)
+INSERT INTO tmp values(tmp_seq.NEXTVAL, 'tmptmp');
+
+
+
 ----------------------------------------------------------------
+alter table tbl_board add constraint pk_board  -- Primary Key(PK) ÁöÁ¤
+primary key (bno);
 
--- ë°ì´í„° ì‚½ìž…, row ìƒì„±
+
+----------------------------------------------------------------
+-- µ¥ÀÌÅÍ »ðÀÔ, row »ý¼º
 insert into tbl_board (bno, title, content, writer)
-values (seq_board.nextval, 'í…ŒìŠ¤íŠ¸ ì œëª©', 'í…ŒìŠ¤íŠ¸ ë‚´ìš©', user00);     -- ì‹œí€€ìŠ¤.nextval ë§¤ë²ˆ ìƒˆë¡œìš´ ë²ˆí˜¸ë¥¼ í• ë‹¹
+values (seq_board.nextval, 'Å×½ºÆ® Á¦¸ñ', 'Å×½ºÆ® ³»¿ë', user00);     -- ½ÃÄö½º.nextval ¸Å¹ø »õ·Î¿î ¹øÈ£¸¦ ÇÒ´ç
 
 
 
@@ -219,65 +267,72 @@ values (seq_board.nextval, 'í…ŒìŠ¤íŠ¸ ì œëª©', 'í…ŒìŠ¤íŠ¸ ë‚´ìš©', user00);     
 
 
 --------------------------------------------------------------------------------------------------------
--- ì˜¤ë¼í´ ë‚´ìž¥í•¨ìˆ˜ ì •ë¦¬
+-- ¿À¶óÅ¬ ³»ÀåÇÔ¼ö Á¤¸®
 --------------------------------------------------------------------------------------------------------
 
-select chr(65) from dual;     -- ì•„ìŠ¤í‚¤ì½”ë“œë¥¼ ë¬¸ìž(A)ë¡œ ì¶œë ¥
+select chr(65) from dual;     -- ¾Æ½ºÅ°ÄÚµå¸¦ ¹®ÀÚ(A)·Î Ãâ·Â
 
-select ascii('A') from dual;  -- ë¬¸ìžë¥¼ hexê°’(65)ìœ¼ë¡œ ì¶œë ¥
+select ascii('A') from dual;  -- ¹®ÀÚ¸¦ hex°ª(65)À¸·Î Ãâ·Â
 
-select concat('Republic of ', 'KOREA') from dual;     -- ë¬¸ìžì—´ ë¶™ì´ê¸°
+select concat('Republic of ', 'KOREA') from dual;     -- ¹®ÀÚ¿­ ºÙÀÌ±â
 
-select initcap('MR. TEsT') from dual;     -- ê° ë‹¨ì–´ ì•žê¸€ìž ëŒ€ë¬¸ìž, ë‚˜ë¨¸ì§€ ì†Œë¬¸ìž
+select initcap('MR. TEsT') from dual;     -- °¢ ´Ü¾î ¾Õ±ÛÀÚ ´ë¹®ÀÚ, ³ª¸ÓÁö ¼Ò¹®ÀÚ
 
-select lower('Mr. TesT') from dual; -- ëª¨ë“  ë¬¸ìž ì†Œë¬¸ìž ë³€í™˜
-select upper('Mr. TesT') from dual; -- ëª¨ë“  ë¬¸ìž ëŒ€ë¬¸ìž ë³€í™˜
+select lower('Mr. TesT') from dual; -- ¸ðµç ¹®ÀÚ ¼Ò¹®ÀÚ º¯È¯
+select upper('Mr. TesT') from dual; -- ¸ðµç ¹®ÀÚ ´ë¹®ÀÚ º¯È¯
 
-select lpad('TEST', 8, '*') from dual;    -- (ì™¼ìª½ ì±„ì›€)ì „ì²´ ê¸¸ì´ê°€ 8ì´ ë˜ë„ë¡ ì™¼ìª½ì— * ì±„ì›€
-select lpad(ì»¬ëŸ¼ëª…, 8, '*') from í…Œì´ë¸”ëª…;
+select lpad('TEST', 8, '*') from dual;    -- (¿ÞÂÊ Ã¤¿ò)ÀüÃ¼ ±æÀÌ°¡ 8ÀÌ µÇµµ·Ï ¿ÞÂÊ¿¡ * Ã¤¿ò
+select lpad(ÄÃ·³¸í, 8, '*') from Å×ÀÌºí¸í;
 
-select rpad('TEST', 8, '*') from dual;    -- (ì˜¤ë¥¸ìª½ ì±„ì›€)ì „ì²´ ê¸¸ì´ê°€ 8ì´ ë˜ë„ë¡ ì˜¤ë¥¸ìª½ì— * ì±„ì›€
+select rpad('TEST', 8, '*') from dual;    -- (¿À¸¥ÂÊ Ã¤¿ò)ÀüÃ¼ ±æÀÌ°¡ 8ÀÌ µÇµµ·Ï ¿À¸¥ÂÊ¿¡ * Ã¤¿ò
 
 
--- ì»¬ëŸ¼ì—ì„œ ì§€ì •í•œ ë¬¸ìžë¥¼ ì™¼ìª½ì—ì„œ ì œê±°í•œ ê²°ê³¼
-SELECT LTRIM(' í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤') AS LTRIM_ONE 
-      ,LTRIM('í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤','í…ŒìŠ¤íŠ¸') AS LTRIM_TWO
-      ,LTRIM('í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤','ìŠ¤íŠ¸') AS LTRIM_THREE 
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+-- ÄÃ·³¿¡¼­ ÁöÁ¤ÇÑ ¹®ÀÚ(or °ø¹é)¸¦ ¿ÞÂÊ¿¡¼­ Á¦°ÅÇÑ °á°ú
+SELECT LTRIM(' Å×½ºÆ®ÀÔ´Ï´Ù') AS LTRIM_ONE 
+      ,LTRIM('Å×½ºÆ®ÀÔ´Ï´Ù','Å×½ºÆ®') AS LTRIM_TWO
+      ,LTRIM('Å×½ºÆ®ÀÔ´Ï´Ù','½ºÆ®') AS LTRIM_THREE 
       FROM DUAL;
 
--- ì»¬ëŸ¼ì—ì„œ ì§€ì •í•œ ë¬¸ìžë¥¼ ì˜¤ë¥¸ìª½ì—ì„œ ì œê±°í•œ ê²°ê³¼
-SELECT RTRIM('í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤ ') AS RTRIM_ONE 
-      ,RTRIM('í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤','ë‹ˆë‹¤') AS RTRIM_TWO
-      ,RTRIM('í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤','ìž…ë‹ˆ') AS RTRIM_THREE 
-      FROM DUAL;
+-- ÄÃ·³¿¡¼­ ÁöÁ¤ÇÑ ¹®ÀÚ(or °ø¹é)¸¦ ¿À¸¥ÂÊ¿¡¼­ Á¦°ÅÇÑ °á°ú
+SELECT 
+       RTRIM('Å×½ºÆ®ÀÔ´Ï´Ù ') AS RTRIM_ONE 
+      ,RTRIM('Å×½ºÆ®ÀÔ´Ï´Ù','´Ï´Ù') AS RTRIM_TWO
+      ,RTRIM('Å×½ºÆ®ÀÔ´Ï´Ù','ÀÔ´Ï') AS RTRIM_THREE 
+FROM DUAL;
 
--- ì»¬ëŸ¼ì—ì„œ ì§€ì •í•œ ë¬¸ìžë¥¼ ì–‘ìª½ì—ì„œ ì œê±°í•œ ê²°ê³¼
--- LEADING : ì™¼ìª½ì—ì„œ ì œê±°  |  TRAILING : ì˜¤ë¥¸ìª½ì—ì„œ ì œê±°  |  BOTH : ì–‘ìª½ì—ì„œ ì œê±°
--- íŠ¹ë³„ížˆ ì„¤ì •í•´ì£¼ëŠ” ê°’ì´ ì—†ìœ¼ë©´ ê¸°ë³¸ê°’ì€ BOTH
--- ì œê±°í•  ë¬¸ìžëŠ” ì˜¤ì§ í•œê°œ(ltrim, rtrimì€ ì—¬ëŸ¬ê°œ ê°€ëŠ¥)
-SELECT TRIM(' í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤ ') AS TRIM_ONE 
-        ,TRIM('ë‹¤' FROM 'ë‹¤ëŠ” í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤') AS TRIM_TWO
-        ,TRIM(BOTH 'ë‹¤' FROM 'ë‹¤ëŠ” í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤') AS TRIM_THREE 
-        ,TRIM(LEADING 'ë‹¤' FROM 'ë‹¤ëŠ” í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤') AS TRIM_FOUR
-        ,TRIM(TRAILING 'ë‹¤' FROM 'ë‹¤ëŠ” í…ŒìŠ¤íŠ¸ìž…ë‹ˆë‹¤') AS TRIM_FIVE
+-- ÄÃ·³¿¡¼­ ÁöÁ¤ÇÑ ¹®ÀÚ(or °ø¹é)¸¦ ¾çÂÊ¿¡¼­ Á¦°ÅÇÑ °á°ú
+-- LEADING : ¿ÞÂÊ¿¡¼­ Á¦°Å  |  TRAILING : ¿À¸¥ÂÊ¿¡¼­ Á¦°Å  |  BOTH : ¾çÂÊ¿¡¼­ Á¦°Å
+-- Æ¯º°È÷ ¼³Á¤ÇØÁÖ´Â °ªÀÌ ¾øÀ¸¸é ±âº»°ªÀº BOTH
+-- Á¦°ÅÇÒ ¹®ÀÚ´Â ¿ÀÁ÷ ÇÑ°³(ltrim, rtrimÀº ¿©·¯°³ °¡´É)
+SELECT TRIM(' Å×½ºÆ®ÀÔ´Ï´Ù ') AS TRIM_ONE 
+        ,TRIM('´Ù' FROM '´Ù´Â Å×½ºÆ®ÀÔ´Ï´Ù') AS TRIM_TWO
+        ,TRIM(BOTH '´Ù' FROM '´Ù´Â Å×½ºÆ®ÀÔ´Ï´Ù') AS TRIM_THREE 
+        ,TRIM(LEADING '´Ù' FROM '´Ù´Â Å×½ºÆ®ÀÔ´Ï´Ù') AS TRIM_FOUR
+        ,TRIM(TRAILING '´Ù' FROM '´Ù´Â Å×½ºÆ®ÀÔ´Ï´Ù') AS TRIM_FIVE
         FROM DUAL;
-
--- SUBSTR í•¨ìˆ˜ëŠ” ë¬¸ìžë‹¨ìœ„ë¡œ ì‹œìž‘ìœ„ì¹˜ì™€ ìžë¥¼ ê¸¸ì´ë¥¼ ì§€ì •í•˜ì—¬ ë¬¸ìžì—´ì„ ìžë¥¸ë‹¤.
--- - í•¨ìˆ˜  :  SUBSTR("ë¬¸ìžì—´", "ì‹œìž‘ìœ„ì¹˜", "ê¸¸ì´")
---[ì•žì—ì„œë¶€í„° ë¬¸ìžì—´ì„ ìžë¥´ëŠ” ë°©ë²•]
+		
+		
+----------------------------------------------------------------------------------------------------------------------------------------------
+-- SUBSTR ÇÔ¼ö´Â ¹®ÀÚ´ÜÀ§·Î ½ÃÀÛÀ§Ä¡¿Í ÀÚ¸¦ ±æÀÌ¸¦ ÁöÁ¤ÇÏ¿© ¹®ÀÚ¿­À» ÀÚ¸¥´Ù.
+-- - ÇÔ¼ö  :  SUBSTR("¹®ÀÚ¿­", "½ÃÀÛÀ§Ä¡", "±æÀÌ")
+--[¾Õ¿¡¼­ºÎÅÍ ¹®ÀÚ¿­À» ÀÚ¸£´Â ¹æ¹ý]
 SELECT ENAME
      , SUBSTR(ENAME, 2)
      , SUBSTR(ENAME, 2, 3)
 FROM EMP
---[ë’¤ì—ì„œë¶€í„° ë¬¸ì—´ì„ ìžë¥´ëŠ” ë°©ë²•]
+--[µÚ¿¡¼­ºÎÅÍ ¹®¿­À» ÀÚ¸£´Â ¹æ¹ý]
 SELECT ENAME
      , SUBSTR(ENAME, -3)
      , SUBSTR(ENAME, -3, 2)
 FROM EMP
 
--- TO_CHAR() í•¨ìˆ˜ëŠ” ë‚ ì§œ, ìˆ«ìž ë“±ì˜ ê°’ì„ ë¬¸ìžì—´ë¡œ ë³€í™˜í•˜ëŠ” í•¨ìˆ˜
--- (ì°¸ê³ )https://gent.tistory.com/331
--- ë‚ ì§œ í¬ë§· ë³€ê²½ (YYYY-MM-DD)
+
+-----------------------------------------------------------------------------
+-- TO_CHAR() ÇÔ¼ö´Â ³¯Â¥, ¼ýÀÚ µîÀÇ °ªÀ» ¹®ÀÚ¿­·Î º¯È¯ÇÏ´Â ÇÔ¼ö
+-- (Âü°í)https://gent.tistory.com/331
+-- ³¯Â¥ Æ÷¸Ë º¯°æ (YYYY-MM-DD)
 SELECT TO_CHAR(SYSDATE, 'YYYYMMDD')              --20200723
      , TO_CHAR(SYSDATE, 'YYYY/MM/DD')            --2020/07/23
      , TO_CHAR(SYSDATE, 'YYYY-MM-DD')            --2020-07-23
@@ -286,129 +341,387 @@ FROM dual;
 
 
 
+-- https://kongda.tistory.com/36
 -- https://dev4u.tistory.com/100
--- ì˜¤ë¼í´ 1000ë‹¨ìœ„ ìˆ«ìžê°’ì— 3ìžë¦¬ ë§ˆë‹¤ ì½¤ë§ˆ(,) ì°ê¸°
+-- ¿À¶óÅ¬ 1000´ÜÀ§ ¼ýÀÚ°ª¿¡ 3ÀÚ¸® ¸¶´Ù ÄÞ¸¶(,) Âï±â
+SELECT TO_CHAR( num_col , 'FM999,999,999') FROM DUAL;
 SELECT TO_CHAR( num_col , '999,999,999,999,999') FROM DUAL;
 
 
 -- https://gent.tistory.com/69
--- ì˜¤ë¼í´(Oracle) ë‚ ì§œ ìš”ì¼(Week) êµ¬í•˜ëŠ” ë°©ë²•
-TO_CHAR ( "ë‚ ì§œ", "í¬ë§·" )
+-- ¿À¶óÅ¬(Oracle) ³¯Â¥ ¿äÀÏ(Week) ±¸ÇÏ´Â ¹æ¹ý
+TO_CHAR ( "³¯Â¥", "Æ÷¸Ë" )
 
 
--- DECODE í•¨ìˆ˜ëŠ” í”„ë¡œê·¸ëž˜ë°ì—ì„œì˜  if else ì™€ ë¹„ìŠ·í•œ ê¸°ëŠ¥ì„ ìˆ˜í–‰í•œë‹¤. ê°„ë‹¨í•œ ì‚¬ìš©ë°©ë²•ì€ ì•„ëž˜ì™€ ê°™ë‹¤.
--- ì¸ìž 4ê°œì¼ë•Œ: DECODE(ì»¬ëŸ¼,ì¡°ê±´,TRUE ê²°ê³¼ê°’,FALSE ê²°ê³¼ê°’)
--- ì¸ìž 5ê°œ ì´ìƒì¼ë•Œ: DECODE(ì»¬ëŸ¼, ì¡°ê±´1, ê²°ê³¼1, ì¡°ê±´2, ê²°ê³¼2, ì¡°ê±´3, ê²°ê³¼3..........) 
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- DECODE ÇÔ¼ö´Â ÇÁ·Î±×·¡¹Ö¿¡¼­ÀÇ  if else ¿Í ºñ½ÁÇÑ ±â´ÉÀ» ¼öÇàÇÑ´Ù. °£´ÜÇÑ »ç¿ë¹æ¹ýÀº ¾Æ·¡¿Í °°´Ù.
+-- ÀÎÀÚ 4°³ÀÏ¶§: DECODE(ÄÃ·³,Á¶°Ç,TRUE °á°ú°ª,FALSE °á°ú°ª)
+-- ÀÎÀÚ 5°³ ÀÌ»óÀÏ¶§: DECODE(ÄÃ·³, Á¶°Ç1, °á°ú1, Á¶°Ç2, °á°ú2, Á¶°Ç3, °á°ú3..........) 
 -- https://gent.tistory.com/227
 -- https://coding-factory.tistory.com/297
--- ELSE ë¶€ë¶„ì€ ìƒëžµì´ ê°€ëŠ¥í•˜ë‹¤. í•´ë‹¹ ì¡°ê±´ì´ ì—†ìœ¼ë©´ NULL
+-- ELSE ºÎºÐÀº »ý·«ÀÌ °¡´ÉÇÏ´Ù. ÇØ´ç Á¶°ÇÀÌ ¾øÀ¸¸é NULL
 SELECT gender
-     , DECODE(gender, 'M', 'ë‚¨ìž', 'F', 'ì—¬ìž', 'ê¸°íƒ€') gender2
+     , DECODE(gender, 'M', '³²ÀÚ', 'F', '¿©ÀÚ', '±âÅ¸') gender2
   FROM temp
 
 
--- TO_CHAR : ìˆ«ìžë‚˜ ë‚ ì§œë¥¼ ë¬¸ìžì—´ë¡œ ë³€í™˜
--- TO_NUMBER : ë¬¸ìžë¥¼ ìˆ«ìžë¡œ ë³€í™˜
--- TO_DATE : ë¬¸ìžë¥¼ ë‚ ì§œë¡œ ë³€í™˜
 
 
--- ë¬¸ìžì—´ ë‚ ì§œë¥¼ ì›í•˜ëŠ” ë¬¸ìžì—´ í¬ë§·ìœ¼ë¡œ ë³€ê²½í•˜ê¸°
--- ë‚ ì§œí˜•ì˜ í¬ë§·ì€ TO_CHAR í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ì‰½ê²Œ ë³€ê²½í•  ìˆ˜ ìžˆë‹¤. ê·¸ëŸ¬ë‚˜ ë¬¸ìžì—´ ë‚ ì§œ, 
--- ì˜ˆë¥¼ë“¤ì–´ "20180823"ì„ "2018-08-23"ìœ¼ë¡œ ë³€ê²½ í•˜ê¸° ìœ„í•´ì„œëŠ” ë²ˆê±°ë¡œìš´ ìž‘ì—…ì´ í•„ìš”í•˜ë‹¤.
--- ì•„ëž˜ëŠ” 2ê°€ì§€ì˜ ë°©ë²•ì„ ì‚¬ìš©í•˜ì—¬ í¬ë§·ì„ ë³€ê²½í•˜ëŠ” ì˜ˆì œì´ë‹¤. 
--- ì²«ë²ˆì§¸ëŠ” ë¬¸ìžì—´ì„ TO_DATE í•¨ìˆ˜ë¡œ ë‚ ì§œí˜•ìœ¼ë¡œ ë³€ê²½í•œ ë‹¤ìŒ ë‹¤ì‹œ TO_CHAR í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ì›í•˜ëŠ” í¬ë§·ìœ¼ë¡œ ë³€ê²½í•˜ëŠ” ë°©ë²•ì´ë‹¤.
--- ë‘ë²ˆì§¸ëŠ” ì •ê·œì‹í•¨ìˆ˜ REGEXP_REPLACEë¥¼ ì‚¬ìš©í•˜ì—¬ ì›í•˜ëŠ” íŒ¨í„´ìœ¼ë¡œ ë¬¸ìžì—´ì˜ í˜•ì‹ì„ ë³€ê²½í•˜ëŠ” ë°©ë²•ì´ë‹¤. 
--- ì´ í•¨ìˆ˜ëŠ” ì˜¤ë¼í´ 10g ì´ìƒì˜ ë²„ì „ì—ì„œ ì‚¬ìš©ê°€ëŠ¥ í•˜ë‹¤.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- TO_CHAR : ¼ýÀÚ³ª ³¯Â¥¸¦ ¹®ÀÚ¿­·Î º¯È¯
+-- TO_NUMBER : ¹®ÀÚ¸¦ ¼ýÀÚ·Î º¯È¯
+-- TO_DATE : ¹®ÀÚ¸¦ ³¯Â¥·Î º¯È¯
+
+
+-- ¹®ÀÚ¿­ ³¯Â¥¸¦ ¿øÇÏ´Â ¹®ÀÚ¿­ Æ÷¸ËÀ¸·Î º¯°æÇÏ±â
+-- ³¯Â¥ÇüÀÇ Æ÷¸ËÀº TO_CHAR ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© ½±°Ô º¯°æÇÒ ¼ö ÀÖ´Ù. ±×·¯³ª ¹®ÀÚ¿­ ³¯Â¥, 
+-- ¿¹¸¦µé¾î "20180823"À» "2018-08-23"À¸·Î º¯°æ ÇÏ±â À§ÇØ¼­´Â ¹ø°Å·Î¿î ÀÛ¾÷ÀÌ ÇÊ¿äÇÏ´Ù.
+-- ¾Æ·¡´Â 2°¡ÁöÀÇ ¹æ¹ýÀ» »ç¿ëÇÏ¿© Æ÷¸ËÀ» º¯°æÇÏ´Â ¿¹Á¦ÀÌ´Ù. 
+-- Ã¹¹øÂ°´Â ¹®ÀÚ¿­À» TO_DATE ÇÔ¼ö·Î ³¯Â¥ÇüÀ¸·Î º¯°æÇÑ ´ÙÀ½ ´Ù½Ã TO_CHAR ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© ¿øÇÏ´Â Æ÷¸ËÀ¸·Î º¯°æÇÏ´Â ¹æ¹ýÀÌ´Ù.
+-- µÎ¹øÂ°´Â Á¤±Ô½ÄÇÔ¼ö REGEXP_REPLACE¸¦ »ç¿ëÇÏ¿© ¿øÇÏ´Â ÆÐÅÏÀ¸·Î ¹®ÀÚ¿­ÀÇ Çü½ÄÀ» º¯°æÇÏ´Â ¹æ¹ýÀÌ´Ù. 
+-- ÀÌ ÇÔ¼ö´Â ¿À¶óÅ¬ 10g ÀÌ»óÀÇ ¹öÀü¿¡¼­ »ç¿ë°¡´É ÇÏ´Ù.
 SELECT TO_CHAR(TO_DATE('20180823', 'YYYYMMDD'), 'YYYY-MM-DD') AS T1 FROM DUAL; 
 SELECT REGEXP_REPLACE('20180823', '(.{4})(.{2})(.{2})', '\1-\2-\3') AS T2 FROM DUAL;
 
 
+-- ³¯Â¥+½Ã°£ÀÌ Æ÷ÇÔµÈ ¹®ÀÚ¿­À» Date Æ÷¸ËÀ¸·Î º¯È¯
+¿¹)2023/03/14 17:05:01
+SELECT TO_DATE( '2023/03/14 17:05:01', 'YYYY/MM/DD HH24:MI:SS' ) FROM DUAL;
+
+¿¹)2023-03-14 ¿ÀÈÄ 5:50:30
+-- ¾Æ·¡Ã³·³ AM / PM °á°ú´Â °°À½
+SELECT TO_DATE( '2023-03-14 ¿ÀÈÄ 5:50:30', 'YYYY-MM-DD AM HH:MI:SS' ) FROM DUAL;
+SELECT TO_DATE( '2023-03-14 ¿ÀÈÄ 5:50:30', 'YYYY-MM-DD PM HH:MI:SS' ) FROM DUAL;
+
+
+
 select mod(10,3) from daul;
--- MOD ë‚˜ë¨¸ì§€ êµ¬í•˜ê¸° í•¨ìˆ˜
--- ê²°ê³¼: 1
+-- MOD ³ª¸ÓÁö ±¸ÇÏ±â ÇÔ¼ö
+-- °á°ú: 1
 
 
--- TRUNC í•¨ìˆ˜ëŠ” ì£¼ë¡œ ì†Œìˆ˜ì  ì ˆì‚¬ ë° ë‚ ì§œì˜ ì‹œê°„ì„ ì—†ì•¨ ë•Œ ì‚¬ìš©í•œë‹¤.
--- 10 ë‚˜ëˆ„ê¸° 3 = 3.3333333...  ì¼ê²½ìš° ì†Œìˆ˜ì  ì ˆì‚¬í•˜ì—¬ ê²°ê³¼ëŠ” 3
--- ê²°êµ­ ë‚˜ë¨¸ì§€ ë²„ë¦¬ê³  ëª«ë§Œ ê°€ì ¸ì˜¤ëŠ”ê±°ë„¤
+-- TRUNC ÇÔ¼ö´Â ÁÖ·Î ¼Ò¼öÁ¡ Àý»ç ¹× ³¯Â¥ÀÇ ½Ã°£À» ¾ø¾Ù ¶§ »ç¿ëÇÑ´Ù.
+-- 10 ³ª´©±â 3 = 3.3333333...  ÀÏ°æ¿ì ¼Ò¼öÁ¡ Àý»çÇÏ¿© °á°ú´Â 3
+-- °á±¹ ³ª¸ÓÁö ¹ö¸®°í ¸ò¸¸ °¡Á®¿À´Â°Å³×
 select trunc(10/3) from dual; 
 
 
---ì˜¤ë¼í´ ê³„ì¸µí˜• ì¿¼ë¦¬
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- https://coding-factory.tistory.com/461
+-- https://tragramming.tistory.com/82
+-- ¿À¶óÅ¬ °èÃþÇü Äõ¸®
 START WITH.. CONNECT BY
 SYS_CONNECT_BY_PATH
+;
+
+-- https://devjhs.tistory.com/171
+-- CONNECT_BY_ISLEAF - ÀÚ½Ä ³ëµå Ã£±â
 
 
+select * from dep;
+
+DEP_CD PARENT_CD DEPT_NAME
+101     		ÃÑ°ý°³¹ßºÎ
+102	    101	    ¸ð¹ÙÀÏ°³¹ß¼¾ÅÍ
+103	    101	    À¥°³¹ß¼¾ÅÍ
+104	    101	    ½Ã½ºÅÛ°³¹ß¼¾ÅÍ
+105	    102	    ¼îÇÎ¸ô(¸ð¹ÙÀÏ)
+106	    103	    ¿ÜÁÖSI
+107	    103	    ¼îÇÎ¸ô
+108	    105	    Àü»êÁö¿øÆÀ
+109	    106	    ±¸Ãà1ÆÀ
+100	    106	    ±¸Ãà2ÆÀ
+111	    104	    ERP½Ã½ºÅÛ
+112	    106	    Å×½ºÆ®1
+;
+
+SELECT	LPAD(' ', 4*(LEVEL-1)) || DEPT_NAME AS "ºÎ¼­¸í",
+                LEVEL,
+                DEP_CD,
+                PARENT_CD,                
+                CONNECT_BY_ISLEAF AS LEAF   -- ÀÚ½Ä³ëµå Á¸Àç¿©ºÎ(0:ÀÖÀ½ / 1:¾øÀ½)
+FROM DEP 
+START WITH PARENT_CD IS NULL --ÃÖ»óÀ§³ëµå ¼³Á¤,
+CONNECT BY PRIOR DEP_CD = PARENT_CD --ºÎ¸ð³ëµå¿Í ÀÚ½Ä³ëµå ¿¬°á
+--ORDER SIBLINGS BY  DEP_CD -- ÀÏ¹ÝÀûÀÎ ORDER BY °¡ ¾Æ´Ñ °èÃþ³»¿¡¼­ Á¤·Ä
+;
+
+
+https://jogakleeron.tistory.com/49
+°èÃþ³»¿¡¼­ Á¤·ÄÇÏ±â ORDER SIBLINGS BY
+
+
+
+
+
+---------------------------------------------------------------------------------
 -- https://coding-factory.tistory.com/417
---ì˜¤ë¼í´ ë·°(view) ìƒì„±/ìˆ˜ì •
-CREATE OR REPLACE VIEW [ìŠ¤í‚¤ë§ˆ.][ë·° NAME] AS
-SELECTë¬¸;
---ë·°(View) ì‚­ì œ
-DROP VIEW [ìŠ¤í‚¤ë§ˆ.][ë·° NAME]
---ë·°(View) êµ¬ì¡° í™•ì¸
-desc [ìŠ¤í‚¤ë§ˆ.][ë·° NAME];
+--¿À¶óÅ¬ ºä(view) »ý¼º/¼öÁ¤
+CREATE OR REPLACE VIEW [½ºÅ°¸¶.][ºä NAME] AS
+SELECT¹®;
+--ºä(View) »èÁ¦
+DROP VIEW [½ºÅ°¸¶.][ºä NAME]
+--ºä(View) ±¸Á¶ È®ÀÎ
+desc [½ºÅ°¸¶.][ºä NAME];
 
 
 
-
+------------------------------------------------------------------------------------------------------------------------------------------
 -- https://offbyone.tistory.com/245
--- https://bebeya.tistory.com/entry/ì˜¤ë¼í´-DBLINKë””ë¹„ë§í¬-ì¡°íšŒìƒì„±ì‚­ì œ-ë°©ë²•
--- ë™ì˜ì–´(ì‹œë…¸ìž„) ìƒì„±
--- DBë§í¬ ìƒì„±
+-- https://bebeya.tistory.com/entry/¿À¶óÅ¬-DBLINKµðºñ¸µÅ©-Á¶È¸»ý¼º»èÁ¦-¹æ¹ý
+-- https://bangu4.tistory.com/322
+-- https://bebeya1.tistory.com/3
+-- µ¿ÀÇ¾î(½Ã³ëÀÓ) »ý¼º
+-- DB¸µÅ© »ý¼º
 SELECT * FROM ALL_SYNONYMS;
 
+Á¢±ÙÁ¦ÇÑÀÚ(PUBLIC / PRIVATE)°¡ Á¸ÀçÇÑ´Ù 
+- PUBLIC   ¸ðµç À¯Àú°¡ »ç¿ë°¡´ÉÇÑ °ø¿ë¸µÅ©¸¦ ¸¸µé¶§ ÁöÁ¤ÇÑ´Ù.
+- PRIVATE Æ¯Á¤ À¯Àú¸¸ »ç¿ë°¡´É ÇÑ DB¸µÅ©¸¦ ¸¸µé¶§ ÁöÁ¤ÇÑ´Ù. 
+
+CREATE [PUBLIC/PRIVATE] DATABASE LINK [¸µÅ©·Î »ç¿ëÇÒ ¸íÄª] 
+CONNECT TO [¿ø°ÝÁö ·Î±×ÀÎ À¯Àú¸í] 
+IDENTIFIED BY "[¿ø°ÝÁö À¯Àú ÆÐ½º¿öµå]" 
+USING [·ÎÄÃ¼­¹öÀÇ tnsnames.ora¿¡ ¼³Á¤µÈ Á¢¼ÓÇÒ ¸ÅÄªÀÌ¸§]
 
 
-
-
-
+------------------------------------------------------------------------------------------------------------------------------------------
 https://joont.tistory.com/153
-ORA-28001, ì˜¤ë¼í´ íŒ¨ìŠ¤ì›Œë“œ ë§Œë£Œ í•´ê²°
+ORA-28001, ¿À¶óÅ¬ ÆÐ½º¿öµå ¸¸·á ÇØ°á
 
 
+select username, account_status, lock_date, expiry_date, created, profile
+from dba_users 
+where username='BOOK_EX'
+;
 
+alter user BOOK_EX identified by book_ex
+;
+
+
+select * from dba_profiles 
+where resource_type='PASSWORD'
+;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+/*
 https://gent.tistory.com/241
 https://gent.tistory.com/192
-ë‚ ì§œ ë° ìˆ«ìž ë°˜ì˜¬ë¦¼, ì ˆì‚¬(ë²„ë¦¼)
-ROUND("ê°’", "ìžë¦¬ìˆ˜")
-TRUNC("ê°’", "ì˜µì…˜")
+https://dpdpwl.tistory.com/121
+	³¯Â¥ ¹× ¼ýÀÚ ¹Ý¿Ã¸², Àý»ç
+	ROUND("°ª", "ÀÚ¸®¼ö")	-- ¹Ý¿Ã¸²
+	TRUNC("°ª", "¿É¼Ç")	-- Àý»ç(¹ö¸²)
+	CEIL("°ª")			-- ¼Ò¼öÁ¡ Ã¹Â°ÀÚ¸® ¿Ã¸², ÀÚ¸´¼ö ÁöÁ¤ºÒ°¡
+	FLOOR("°ª")			-- ¼Ò¼öÁ¡ Ã¹Â°ÀÚ¸® ³»¸², ÀÚ¸´¼ö ÁöÁ¤ºÒ°¡
+*/
+SELECT CEIL(3.1) FROM DUAL;		-- 4
+SELECT FLOOR(3.7) FROM DUAL;	-- 3
 
 
-MOD(M,N) : Mì„ Nìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ë•Œ ë‚˜ë¨¸ì§€ ë°˜í™˜
+MOD(M,N) : MÀ» NÀ¸·Î ³ª´©¾úÀ»¶§ ³ª¸ÓÁö ¹ÝÈ¯
 
 
-CONNECT BY LEVEL	ì—°ì†ëœ ìˆ«ìž ì¡°íšŒí• ë•Œ í™œìš©
+CONNECT BY LEVEL	¿¬¼ÓµÈ ¼ýÀÚ Á¶È¸ÇÒ¶§ È°¿ë
 
 
 
-
+;
 -- https://gent.tistory.com/405
--- # ì‹œê°„ ì°¨ì´ ê³„ì‚°
--- 13:00ë¶€í„° 15:00ê¹Œì§€ ì‹œê°„ ì°¨ì´ëŠ” 2ì‹œê°„ìœ¼ë¡œ ê³„ì‚° ë˜ì–´ì„œ ë°˜í™˜ëœë‹¤.
--- ì‹œê°„ê³¼ ì´ˆê°€ í•¨ê»˜ ì¡´ìž¬í•˜ë©´ ì†Œìˆ˜ì ì´ ë°œìƒí•˜ë¯€ë¡œ ê¼­ ROUND í•¨ìˆ˜ë¡œ ì†Œìˆ˜ì ì„ ì²˜ë¦¬í•´ ì¤˜ì•¼ í•œë‹¤.
+-- # ½Ã°£ Â÷ÀÌ °è»ê
+-- 13:00ºÎÅÍ 15:00±îÁö ½Ã°£ Â÷ÀÌ´Â 2½Ã°£À¸·Î °è»ê µÇ¾î¼­ ¹ÝÈ¯µÈ´Ù.
+-- ½Ã°£°ú ÃÊ°¡ ÇÔ²² Á¸ÀçÇÏ¸é ¼Ò¼öÁ¡ÀÌ ¹ß»ýÇÏ¹Ç·Î ²À ROUND ÇÔ¼ö·Î ¼Ò¼öÁ¡À» Ã³¸®ÇØ Áà¾ß ÇÑ´Ù.
 SELECT ROUND((TO_DATE('15:00', 'HH24:MI') - TO_DATE('13:00', 'HH24:MI')) * 24, 2) FROM dual
 
+;
 
--- í…Œì´ë¸” ì‚­ì œ
-DROP TABLE í…Œì´ë¸”ëª…;
-
-
--- í”„ë¡œì‹œì €(PROCEDURE) ì‹¤í–‰
-EXEC í”„ë¡œì‹œì €ëª…;
-
-
-
-
-
+-- ¿¹Á¦) 
+SELECT
+  (EXTRACT(DAY FROM (TO_TIMESTAMP('20230630185121', 'YYYYMMDDHH24MISS') - TO_TIMESTAMP('20230630085531', 'YYYYMMDDHH24MISS'))) * 24 +
+  EXTRACT(HOUR FROM (TO_TIMESTAMP('20230630185121', 'YYYYMMDDHH24MISS') - TO_TIMESTAMP('20230630085531', 'YYYYMMDDHH24MISS')))) AS hours,
+  EXTRACT(MINUTE FROM (TO_TIMESTAMP('20230630185121', 'YYYYMMDDHH24MISS') - TO_TIMESTAMP('20230630085531', 'YYYYMMDDHH24MISS'))) AS minutes,
+  EXTRACT(SECOND FROM (TO_TIMESTAMP('20230630185121', 'YYYYMMDDHH24MISS') - TO_TIMESTAMP('20230630085531', 'YYYYMMDDHH24MISS'))) AS seconds
+FROM
+  dual;
 
 
 
+-- Å×ÀÌºí »èÁ¦
+DROP TABLE Å×ÀÌºí¸í;
+
+
+-- ÇÁ·Î½ÃÀú(PROCEDURE) ½ÇÇà
+EXEC ÇÁ·Î½ÃÀú¸í;
+
+
+https://coding-factory.tistory.com/453
+ÇÁ·Î½ÃÀú¶õ?
+- ÇÔ¼ö´Â Æ¯Á¤ ¿¬»êÀ» ¼öÇàÇÑ µÚ °á°ú °ªÀ» ¹ÝÈ¯ÇÏÁö¸¸ 
+- ÇÁ·Î½ÃÀú´Â Æ¯Á¤ÇÑ ·ÎÁ÷À» Ã³¸®ÇÏ±â¸¸ ÇÏ°í °á°ú °ªÀº ¹ÝÈ¯ÇÏÁö ¾Ê´Â ¼­ºê ÇÁ·Î±×·¥ ÀÓ
 
 
 
 
 
 
+/*
+https://moonong.tistory.com/48
+¿À¶óÅ¬ ±âº»Å°(PK) 2°³ ÀÌ»ó ÁöÁ¤ÇÏ±â
+	- ±âº»Å°¸¦ ±¸¼ºÇÏ´Â ÄÃ·³ÀÌ º¹¼öÀÏ ¼ö´Â ÀÖ¾îµµ
+	- ±âº»Å°°¡ º¹¼öÀÏ ¼ö´Â ¾ø´Ù
+*/	
+CREATE TABLE TEST(
+    CODE VARCHAR2(30), 
+    SEQ NUMBER,    
+    CONSTRAINT [±âº»Å°ÀÌ¸§¾Æ¹«°Å³ª] PRIMARY KEY(CODE, SEQ)
+);
+-- ÀÌ °æ¿ì µÎ °³ ÄÃ·³ÀÌ ÇÏ³ªÀÇ ±âº»Å°·Î ÀÛµ¿ÇÏ±â ¶§¹®¿¡ ÄÃ·³1 / 2´Â °¢°¢ Áßº¹µÉ ¼ö ÀÖÀ¸³ª, 
+-- ÄÃ·³ 1 & 2 ÀÇ °ªÀÌ Áßº¹µÇ´Â °æ¿ì¿¡´Â ±âº»Å°ÀÇ UNIQUE ¿À·ù¸¦ ³»°Ô µÈ´Ù. 
+
+-- Å×ÀÌºí PK È®ÀÎ¹æ¹ý
+-- https://gent.tistory.com/202
+SELECT *
+FROM 
+      ALL_CONS_COLUMNS A
+    , ALL_CONSTRAINTS  B
+WHERE 1=1
+    AND A.TABLE_NAME = B.TABLE_NAME
+    AND A.TABLE_NAME = 'EXAMPLE5'   -- À§¿¡¼­ ¸¸µç Å×ÀÌºí¸í
+    AND B.CONSTRAINT_TYPE = 'P' 
+	AND A.OWNER = B.OWNER
+	AND A.CONSTRAINT_NAME = B.CONSTRAINT_NAME
+;
+
+
+/*
+https://positivemh.tistory.com/330
+¿À¶óÅ¬ Primary Keys ¼³Á¤
+	1. PK »ý¼º - CREATE TABLE ¹® »ç¿ë
+	2. PK »ý¼º - ALTER TABLE ¹® »ç¿ë
+	3. PK »èÁ¦
+	4. PK ºñÈ°¼ºÈ­
+	5. PK È°¼ºÈ­
+*/	
+-- PK ºñÈ°¼ºÈ­
+ALTER TABLE [´ë»óÅ×ÀÌºí¸í]
+DISABLE CONSTRAINT [´ë»ó PK¸í];   -- [´ë»ó PK¸í] == CONSTRAINT_NAME
+
+;
+https://gent.tistory.com/475
+http://www.gurubee.net/article/61158
+¿À¶óÅ¬ °¡Àå ´ÊÀº ³¯Â¥ °á°ú ±¸ÇÏ±â
+ÃÖ´ë°ªÀÌ ¿©·¯°³ÀÏ °æ¿ì °¡Àå ÃÖ½Å ³¯Â¥ÀÇ ÃÖ´ë°ª¸¸ ÃßÃâ
+	ROWNUM
+	ROW_NUMBER() OVER()
+	MAX() KEEP()
+;
+
+
+select *
+from emp
+ WHERE job IN ('MANAGER', 'SALESMAN') ;
+
+
+SELECT job
+     , MAX(sal) KEEP(DENSE_RANK LAST ORDER BY sal)   AS sal_last
+     , MAX(ename) KEEP(DENSE_RANK LAST ORDER BY sal) AS ename_last
+  FROM emp
+ WHERE job IN ('MANAGER', 'SALESMAN')
+ GROUP BY job;
+
+
+;
+
+
+--------------------------------------------------------------------------------
+https://gent.tistory.com/442
+https://wakestand.tistory.com/243
+¿À¶óÅ¬ OVER() ÇÔ¼ö
+    - ºÐ¼®_ÇÔ¼ö() OVER(PARTITION BY ÄÃ·³ / ORDER BY ÄÃ·³ / ¼¼ºÎ ºÐÇÒ ±âÁØ)
+    - ºÐ¼® ÇÔ¼ö¿Í OVER()´Â ÇÊ¼ö
+    - ºÐ¼® ÇÔ¼ö Á¾·ù
+        COUNT(ÄÃ·³) - °¹¼ö
+        SUM(ÄÃ·³) - ÇÕ°è
+        AVG(ÄÃ·³) - Æò±Õ
+        MAX(ÄÃ·³) - ÃÖ´ë°ª
+        MIN(ÄÃ·³) - ÃÖ¼Ò°ª
+        RANK() OVER(ORDER BY ÄÃ·³...) - ¼øÀ§
+        DENSE_RANK() OVER(ORDER BY ÄÃ·³...) - Áßº¹ ¼øÀ§°¡ ÀÖ¾îµµ 1¾¿ Áõ°¡
+        ... ´õ ÀÖÀ½
 
 
 
+
+--------------------------------------------------------------------------------
+https://gent.tistory.com/189
+NVL ÇÔ¼ö´Â °ªÀÌ NULLÀÎ °æ¿ì ÁöÁ¤°ªÀ» Ãâ·ÂÇÏ°í, NULLÀÌ ¾Æ´Ï¸é ¿ø·¡ °ªÀ» ±×´ë·Î Ãâ·ÂÇÑ´Ù.
+	- ÇÔ¼ö  :  NVL("°ª", "ÁöÁ¤°ª") 
+NVL2 ÇÔ¼ö´Â NULLÀÌ ¾Æ´Ñ °æ¿ì ÁöÁ¤°ª1À»  Ãâ·ÂÇÏ°í, NULLÀÎ °æ¿ì ÁöÁ¤°ª2¸¦ Ãâ·ÂÇÑ´Ù.
+	- ÇÔ¼ö :  NVL2("°ª", "ÁöÁ¤°ª1", "ÁöÁ¤°ª2") // NVL2("°ª", "NOT NULL", "NULL") 
+	
+    
+--------------------------------------------------------------------------------
+https://gent.tistory.com/422
+¿À¶óÅ¬ ¹®ÀÚ¿­ ±æÀÌ ±¸ÇÏ±â (LENGTH, LENGTHB)
+	SELECT LENGTH('¿À¶óÅ¬'), LENGTH('¿À¶óÅ¬ SQL')
+	FROM dual
+
+
+
+
+--------------------------------------------------------------------------------
+https://gent.tistory.com/260
+¿À¶óÅ¬ ADD_MONTHS ÇÔ¼ö »ç¿ë¹ý (ÀÌÀü´Þ, ´ÙÀ½´Þ, ¿ù»©±â)
+	ADD_MONTHS( '³¯Â¥', '¼ýÀÚ' )
+
+
+
+
+--------------------------------------------------------------------------------
+https://allmana.tistory.com/83
+Çà µ¥ÀÌÅÍ ÇÑ ¿­·Î ÇÕÄ¡±â
+¼¼·Î Ãâ·ÂÀ» °¡·Î·Î º¯È¯ÇÏ±â
+	LISTAGG(ÄÃ·³,±¸ºÐÀÚ) WITHIN GROUP(ORDER BY ÇÕÃÄÁøÄÃ·³¾È Á¤·Ä)
+;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://meyouus.tistory.com/175
+¿À¶óÅ¬ ¼ø¹ø Ã¤¹ø CONNECT BY LEVEL È°¿ëÇÏ±â  
+
+    SELECT LEVEL AS NO FROM DUAL CONNECT BY LEVEL <=10;
+    
+    SELECT '2020 ³â '||LPAD(LEVEL, 2, 0)||'¿ù' AS NO FROM DUAL
+    CONNECT BY LEVEL <=12;
+
+
+    Æ¯Á¤ ³¯Â¥ ±¸°£ Á¶È¸ÇÏ±â
+    °Ë»öÁ¶°ÇÀÇ From ~ To »çÀÌÀÇ ³¯Â¥ ¸®½ºÆ®¸¦ ±¸ÇÒ¼öµµ ÀÖ½À´Ï´Ù.
+    ex) From : 2020³â 07¿ù 1ÀÏ  / To : 2020³â 07¿ù 17ÀÏ
+;
+
+SELECT TO_DATE('20200701', 'YYYYMMDD') + (LEVEL-1) AS DT
+   FROM DUAL
+CONNECT BY LEVEL <= (TO_DATE('20200717', 'YYYYMMDD') - TO_DATE('20200701', 'YYYYMMDD')) + 1
+;
+
+
+WITH WD AS
+(
+    SELECT TO_DATE('20200701', 'YYYYMMDD') AS FROM_DT   -- ½ÃÀÛÀÏÀÚ
+         , TO_DATE('20200717', 'YYYYMMDD') AS TO_DT     -- Á¾·áÀÏÀÚ    
+      FROM DUAL
+)
+SELECT DT, DT2
+  FROM ( 
+     SELECT TO_CHAR(FROM_DT + (LEVEL-1), 'YYYYMMDD') AS DT
+          , TO_CHAR(FROM_DT + (LEVEL-1), 'YYYY-MM-DD') AS DT2
+       FROM WD
+    CONNECT BY LEVEL <= (TO_DT - FROM_DT) + 1
+  )
+  ;
+
+    
+    
